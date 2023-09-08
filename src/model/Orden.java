@@ -11,14 +11,30 @@ public class Orden {
     private double montoTotal;
     private double subTotal;
 
-    private DetalleOrden detalle;
+    private DetalleOrden detalle[];
 
-    public Orden(Integer id, Cliente cliente, Sucursal sucursal, Date fecha, DetalleOrden detalle) {
+    /*public Orden(Integer id, Cliente cliente
+            , Sucursal sucursal, Date fecha
+            , DetalleOrden detalle) {
         this.id = id;
         this.cliente = cliente;
         this.sucursal = sucursal;
         this.fecha = fecha;
         this.detalle = detalle;
+    }*/
+
+    public Orden(Integer id, Cliente cliente
+            , Sucursal sucursal, Date fecha
+            , DetalleOrden [] detalle) {
+        this.id = id;
+        this.cliente = cliente;
+        this.sucursal = sucursal;
+        this.fecha = fecha;
+        this.detalle = detalle;
+        for (DetalleOrden d : this.detalle) {
+            this.subTotal += d.getSubTotal();
+        }
+        this.montoTotal*=1.15;
     }
 
     public Orden() {
@@ -85,11 +101,11 @@ public class Orden {
         this.subTotal = subTotal;
     }
 
-    public DetalleOrden getDetalle() {
+    public DetalleOrden[] getDetalle() {
         return detalle;
     }
 
-    public void setDetalle(DetalleOrden detalle) {
+    public void setDetalle(DetalleOrden[] detalle) {
         this.detalle = detalle;
     }
 }

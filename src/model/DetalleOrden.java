@@ -11,14 +11,14 @@ public class DetalleOrden {
     private double precio;
 
     public DetalleOrden(Integer id, Pizza pizza, Extra extra
-            , int cantidad, double subTotal) {
+            , int cantidad) {
         this.id = id;
         this.pizza = pizza;
         this.extra = extra;
         this.cantidad = cantidad;
-        this.subTotal = subTotal;
-        if (pizza != null) this.precio = pizza.precio * cantidad;
-        if (extra != null) this.precio = extra.precio * cantidad;
+        this.precio = pizza.precio;
+        if (pizza != null) this.subTotal = pizza.precio * cantidad;
+        if (extra != null) this.subTotal = extra.precio * cantidad;
     }
 
     public DetalleOrden() {
@@ -34,5 +34,53 @@ public class DetalleOrden {
                 ", subTotal=" + subTotal +
                 ", precio=" + precio +
                 '}';
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Pizza getPizza() {
+        return pizza;
+    }
+
+    public void setPizza(Pizza pizza) {
+        this.pizza = pizza;
+    }
+
+    public Extra getExtra() {
+        return extra;
+    }
+
+    public void setExtra(Extra extra) {
+        this.extra = extra;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public double getSubTotal() {
+        return subTotal;
+    }
+
+    public void setSubTotal(double subTotal) {
+        this.subTotal = subTotal;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 }
