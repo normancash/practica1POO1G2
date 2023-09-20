@@ -1,6 +1,8 @@
 import model.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,9 +19,9 @@ public class Main {
                 ,1);
         DetalleOrden detalleOrden1 = new DetalleOrden(2,pizza1,null
                 ,1);
-        DetalleOrden [] d = new DetalleOrden[2];
-        d[0] = detalleOrden;
-        d[1] = detalleOrden1;
+        List<DetalleOrden> d = new ArrayList<>();
+        d.add(detalleOrden);
+        d.add(detalleOrden1);
         Cliente cliente = new Cliente(1,"Norman"
                 ,"Cash","Managua");
         Orden orden = new Orden(1,cliente,suc1,new Date(),d);
